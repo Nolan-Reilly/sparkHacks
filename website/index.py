@@ -120,6 +120,7 @@ def index():
         lowMoisture = request.form.get('lowMoisture')
         SMARTObj = SMART(name, id, email, int(highTemp), int(lowTemp), int(highMoisture), 
                          int(lowMoisture), int(highPh), int(lowPh))
+        write_to_file(SMARTObj)
         return redirect(url_for('index.graphs'))
     return render_template('index.html')
 
@@ -132,3 +133,16 @@ def graphs():
         return redirect('index.index')
     #plot_data()
     return render_template('dashboard.html')
+
+#  Write to file
+def write_to_file(SMARTObj):
+    with open('website/customer.txt', 'a') as file:
+        file.write(SMARTObj.Name + '\n')
+        file.write(SMARTObj.deviceID + '\n')
+        file.write(SMARTObj.Email + '\n')
+        file.write(str(SMARTObj.soil_high_temp_threshold) + '\n')
+        file.write(str(SMARTObj.soil_low_temp_threshold) + '\n')
+        file.write(str(SMARTObj.soil_high_moisture_threshold) + '\n')
+        file.write(str(SMARTObj.soil_low_moisture_threshold) + '\n')
+        file.write(str(SMARTObj.soil_high_ph_threshold) + '\n')
+        file.write(str(SMARTObj.soil_low_ph_threshold) + '\n')
