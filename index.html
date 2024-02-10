@@ -4,43 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <title>Smart</title>
 </head>
 <body>
-  <form>
-    <div class="container mx-auto">
+  <form class="h-screen bg-gray-100 p-6">
+    <div class="container mx-auto h-full flex flex-col justify-center items-center">
+      <!-- Title -->
+      <h1 class="text-center text-3xl font-bold mb-4 text-green-500 flex items-center">
+        <i class="fas fa-cog mr-2"></i> S.M.A.R.T.
+      </h1>
+  
       <!-- Flex Container -->
-      <div class="flex-col">
-        <!-- Input for Device Name -->
-        <input type="text" id="deviceName" placeholder="Device Name">
-
-        <!-- Input for users phone number -->
-        <input type="text" id="phone" placeholder="Phone Number">
-
-        <!-- Input for user to enter High PH level -->
-        <input type="text" id="highPH" placeholder="High PH Level">
-
-        <!-- Input for user to enter Low PH level -->
-        <input type="text" id="lowPH" placeholder="Low PH Level">
-
-        <!-- Input for user to enter High Temperature level -->
-        <input type="text" id="highTemp" placeholder="High Temperature Level">
-
-        <!-- Input for user to enter Low Temperature level -->
-        <input type="text" id="lowTemp" placeholder="Low Temperature Level">
-
-        <!-- Input for High moisture percentage -->
-        <input type="text" id="highMoisture" placeholder="High Moisture Level">
-
-        <!-- Input for Low moisture percentage -->
-        <input type="text" id="lowMoisture" placeholder="Low Moisture Level">
-
-        <!-- Button to send information to server -->
-        <button type="submit" id="submit">Submit</button>
+      <div class="flex flex-col w-full max-w-lg bg-white p-6 rounded-lg shadow-md">
+              <!-- Flex Container for Device Name and Device ID -->
+      <div class="flex justify-between gap-4">
+        <div class="w-1/2">
+          <!-- Label and Input for Device Name -->
+          <label for="deviceName" class="mb-2 font-semibold text-gray-700">Device Name</label>
+          <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="deviceName" placeholder="My Smart Device">
+        </div>
+        <div class="w-1/2">
+          <!-- Label and Input for Device ID -->
+          <label for="deviceId" class="mb-2 font-semibold text-gray-700">Device ID</label>
+          <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="deviceId" placeholder="9368">
+        </div>
       </div>
-
+        <!-- Label and Input for users phone number -->
+        <label for="phone" class="mb-2 font-semibold text-gray-700">Phone Number</label>
+        <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="phone" placeholder="123-456-7890">
+  
+        <!-- Label and Input for user to enter High and Low PH level -->
+        <div class="flex justify-between gap-4">
+          <div class="w-1/2">
+            <label for="highPH" class="mb-2 font-semibold text-gray-700">High PH</label>
+            <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="highPH" placeholder="7.5">
+          </div>
+          <div class="w-1/2">
+            <label for="lowPH" class="mb-2 font-semibold text-gray-700">Low PH</label>
+            <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="lowPH" placeholder="6.5">
+          </div>
+        </div>
+  
+        <!-- Label and Input for user to enter High and Low Temperature level -->
+        <div class="flex justify-between gap-4">
+          <div class="w-1/2">
+            <label for="highTemp" class="mb-2 font-semibold text-gray-700">High Temp</label>
+            <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="highTemp" placeholder="86°F">
+          </div>
+          <div class="w-1/2">
+            <label for="lowTemp" class="mb-2 font-semibold text-gray-700">Low Temp</label>
+            <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="lowTemp" placeholder="68°F">
+          </div>
+        </div>
+  
+        <!-- Label and Input for High and Low moisture percentage -->
+        <div class="flex justify-between gap-4">
+          <div class="w-1/2">
+            <label for="highMoisture" class="mb-2 font-semibold text-gray-700">High Moisture</label>
+            <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="highMoisture" placeholder="80%">
+          </div>
+          <div class="w-1/2">
+            <label for="lowMoisture" class="mb-2 font-semibold text-gray-700">Low Moisture</label>
+            <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="text" id="lowMoisture" placeholder="60%">
+          </div>
+        </div>
+  
+        <!-- Button to send information to server -->
+        <button class="w-full p-2 bg-green-500 text-white rounded hover:bg-green-600 shadow-lg" type="submit" id="submit">Submit</button>
+      </div>
     </div>
-    
   </form>
 </body>
 </html>
