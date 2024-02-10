@@ -38,19 +38,18 @@ def plot_data():
     axs[2].set_title('Soil pH')
     axs[2].set_xlabel('Time')
     axs[2].set_ylabel('pH')
-    
-    ani = FuncAnimation(fig, update_data, frames=range(100), interval=100)
-    writer = PillowWriter(fps=10)
+
+    fig.tight_layout()
+
+    ani = FuncAnimation(fig, update_data, frames=range(40), interval=1)
+    writer = PillowWriter(fps=3)
     ani.save('website/static/soil_data.gif', writer=writer)
     plt.close(fig)
 
 def update_data(frame):
     global SMARTObj
     generate_random_data()
-    # soil_moisture_data.pop(0)
-    # soil_temp_data.pop(0)
-    # soil_ph_data.pop(0)
-    # time_stamps.pop(0)
+    
     # Plot soil moisture
     axs[0].plot(time_stamps, soil_moisture_data, 'b-')
     axs[0].set_title('Soil Moisture')
@@ -105,9 +104,6 @@ def index():
         lowMoisture = request.form.get('lowMoisture')
         SMARTObj = SMART(name, id, int(highTemp), int(lowTemp), int(highMoisture), 
                          int(lowMoisture), int(highPh), int(lowPh))
-        print(SMARTObj._soil_low_moisture_threshold, SMARTObj._soil_high_moisture_threshold, 
-              SMARTObj._soil_low_temp_threshold, SMARTObj._soil_high_temp_threshold, 
-              SMARTObj._soil_low_ph_threshold, SMARTObj._soil_high_ph_threshold)
         return redirect(url_for('index.graphs'))
     return render_template('index.html')
 
@@ -115,9 +111,6 @@ def index():
 # @login_required
 def graphs():
     global SMARTObj
-    print(SMARTObj._soil_low_moisture_threshold, SMARTObj._soil_high_moisture_threshold, 
-              SMARTObj._soil_low_temp_threshold, SMARTObj._soil_high_temp_threshold, 
-              SMARTObj._soil_low_ph_threshold, SMARTObj._soil_high_ph_threshold)
     if(SMARTObj == None):
         flash("Initialize the SMART object first!")
         return redirect('index.index')
