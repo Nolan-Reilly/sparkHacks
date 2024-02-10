@@ -1,1 +1,2 @@
 micah,123,oolug4@uic.edu,55,77,80,60,6,3
+micah,1234,shayangerami241081@gmail.com,88,32,80,44,7,2
