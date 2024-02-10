@@ -34,6 +34,12 @@ def update(frame):
         axs[i].set_xlabel('Time')
         axs[i].set_ylabel('Value')
 
+def fix_phone_numbers(number):
+    number.replace('-', '')
+    number.replace('(', '')
+    number.replace(')', '')
+    number.replace(' ', '')
+
 # Create animation
 ani = FuncAnimation(fig, update, interval=1000)  # Update every 1 second
 
