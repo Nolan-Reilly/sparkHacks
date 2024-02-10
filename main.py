@@ -14,9 +14,9 @@ x_data = [[] for _ in range(3)]
 y_data = [[] for _ in range(3)]
 labels = ['Temperature', 'Soil Moisture', 'pH']
 
-@app.route('/index')
-def index():
-    return render_template('index.html')
+# @app.route('/index')
+# def index():
+#     return render_template('index.html')
 
 # Function to generate random data for each subplot
 def generate_data():

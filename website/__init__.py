@@ -6,8 +6,10 @@ def create_app():
     app.config['SECRET_KEY'] = "jadjajedwahjdashjhkwa"
 
     from .auth import auth
+    from .index import index_blueprint
 
     app.register_blueprint(auth, url_prefix='/')
+    app.register_blueprint(index_blueprint, url_prefix='/')
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
