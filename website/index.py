@@ -51,16 +51,12 @@ def plot_data():
 
     fig.tight_layout()
 
-    ani = FuncAnimation(fig, update_data, frames=range(40), interval=10000000)
-    #writer = PillowWriter(fps=1)
-    #ani.save('website/static/soil_data.gif', writer=writer)
+    ani = FuncAnimation(fig, update_data, frames=range(40), interval=1000)
+    writer = PillowWriter(fps=2)
+    ani.save('website/static/soil_data.gif', writer=writer)
     plt.close(fig)
     return ani
 
-@index_blueprint.route('/get_graph')
-def get_graph():
-    ani = plot_data()
-    return Response(ani.to_jshtml(fps=2, default_mode='once'), mimetype='text/html')
 
 def update_data(frame):
     global SMARTObj
@@ -132,7 +128,7 @@ def graphs():
     if(SMARTObj == None):
         flash("Initialize the SMART object first!")
         return redirect('index.index')
-    #plot_data()
+    plot_data()
     return render_template('dashboard.html')
 
 #  Write to file
