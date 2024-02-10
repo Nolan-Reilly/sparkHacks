@@ -45,10 +45,12 @@ def plot_data():
         plt.ylabel('pH')
         
         plt.tight_layout()
-        plt.show()
+        plt.savefig('website/static/plot.png')
+        plt.close()
+        
         
         # Update the plots every 10 seconds
-        time.sleep(10)
+        time.sleep(3)
 
 def generate_random_data():
     global SMARTObj
