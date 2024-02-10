@@ -1,3 +1,7 @@
+#### SMART (Soil Monitoring Application Real Time)
+The Smart Soil Monitoring System is a project aimed at providing real-time monitoring of soil conditions, including pH, soil moisture, and temperature. This system utilizes a device equipped with sensors to collect data from the soil and a web interface to display the data to users. Additionally, the system includes threshold notifications to alert users when soil conditions exceed predefined thresholds.
+
+
 ## sparkHacks project setup
 Make sure python3 (3.10 or newer) is installed
 
