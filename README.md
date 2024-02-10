@@ -38,3 +38,5 @@ Contributions are welcome! Please follow these steps:
 4. Commit your changes (git commit -am 'Add new feature').
 5. Push to the branch (git push origin feature/new-feature).
 6. Create a new Pull Request.
+
+By Nolan, Micah, Bogdan, Ricky, Shane

@@ -14,6 +14,7 @@ def findInFile(filename, username, password):
                 return User(username, password)
     return None
 
+# Login page backend
 @auth.route('/', methods = ['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -23,18 +24,19 @@ def login():
         user = findInFile('user.txt', username, password)
         if user:
             login_user(user)
-            flash('Logged in successfully!', category='success')
             return redirect(url_for('index.index'))
         else:
             flash("Incorrect username or password. Try again...")
     return render_template("login.html", user=current_user)
 
+# Logout page backend
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+# Signup page backend
 @auth.route('/signup', methods = ['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -43,7 +45,6 @@ def signup():
         password = request.form.get('password')
         user = User(username, generate_password_hash(password, method='pbkdf2'))
         user.write_to_file('user.txt')
-        flash('Account created!', category='success')
         login_user(user)
         return redirect(url_for('index.index'))
     return render_template("signup.html", user=current_user)
