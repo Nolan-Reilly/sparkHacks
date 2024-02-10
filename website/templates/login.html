@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +20,43 @@
         <h1 class="text-center text-3xl font-bold mb-4 text-green-500 flex items-center">
             <p>Welcome</p>
         </h1>
+        <div id="error" style="color: #ea958d; text-align: center;display: inline-block; padding: 5px; border-radius: 5px;">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+        </div>
         <div class="flex flex-col w-full max-w-lg bg-white p-6 rounded-lg shadow-md">
 
-            <label for="username" class="mb-2 font-semibold text-gray-700">Username:</label>
+            <label for="username" class="mb-2 font-semibold text-gray-700 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4 mr-2">
+                    <rect width="256" height="256" fill="none"/>
+                    <circle cx="128" cy="96" r="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <path d="M32,216c19.37-33.47,54.55-56,96-56s76.63,22.53,96,56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                </svg>
+                Username:
+            </label>  
             <input class="w-full p-2 mb-4 border border-gray-300 rounded"  type="text" id="username" name="username" required><br><br>
             
-            <label for="password" class="mb-2 font-semibold text-gray-700">Password:</label>
+            <label for="password" class="mb-2 font-semibold text-gray-700 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4 mr-2">
+                <rect width="256" height="256" fill="none"/>
+                    <line x1="40" y1="56" x2="40" y2="200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="104" y1="96" x2="104" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="73.57" y1="118.11" x2="104" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="85.19" y1="153.89" x2="104" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="122.81" y1="153.89" x2="104" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="134.43" y1="118.11" x2="104" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="200" y1="96" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="169.57" y1="118.11" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="181.19" y1="153.89" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="218.81" y1="153.89" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    <line x1="230.43" y1="118.11" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                </svg>
+                Password:</label>
             <input class="w-full p-2 mb-4 border border-gray-300 rounded" type="password" id="password" name="password" required><br><br>
             
             <button class="w-full p-2 bg-green-500 text-white rounded hover:bg-green-600 shadow-lg" type="submit" id="submit">Login</button>
@@ -35,12 +67,6 @@
         </div>
       </div>
     </form>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
+
 </body>
 </html>
