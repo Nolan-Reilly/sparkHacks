@@ -1,4 +1,6 @@
-
+# Description: This file contains the code for monitoring the soil condition 
+#of the SMART device and sending notification to the customer 
+#if the soil condition is not within the threshold value.
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from sendgrid import SendGridAPIClient
@@ -56,7 +58,13 @@ def monitor_soil_condition(smart_device):
 
 def main():
     # Create SMART device
-    smart_device = SMART("SMART-1", "1234", "aolugbamila@gmail.com", 70, 40, 50, 20, 7, 5)
+    f = open("/Users/pappi/VsCodes/sparkHacks/website/customer.txt", "r")
+    str = f.read()
+    smart_device = SMART(str.split(',')[0], str.split(',')[1], str.split(',')[2], 
+                         int(str.split(',')[3]), int(str.split(',')[4]), 
+                         int(str.split(',')[5]), int(str.split(',')[6]), 
+                         int(str.split(',')[7]), int(str.split(',')[8])
+                    )
     # Monitor soil condition
 
     # test the monitor_soil_condition function

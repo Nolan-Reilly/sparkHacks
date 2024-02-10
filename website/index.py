@@ -136,6 +136,7 @@ def graphs():
 
 #  Write to file
 def write_to_file(SMARTObj):
+    # save customer data to file
     with open('website/customer.txt', 'a') as file:
         file.write(SMARTObj.Name + ',')
         file.write(SMARTObj.deviceID + ',')
@@ -145,4 +146,7 @@ def write_to_file(SMARTObj):
         file.write(str(SMARTObj.soil_high_moisture_threshold) + ',')
         file.write(str(SMARTObj.soil_low_moisture_threshold) + ',')
         file.write(str(SMARTObj.soil_high_ph_threshold) + ',')
-        file.write(str(SMARTObj.soil_low_ph_threshold) + ',')
+        file.write(str(SMARTObj.soil_low_ph_threshold))
+        file.write('\n')
+        # close file
+        file.close()
