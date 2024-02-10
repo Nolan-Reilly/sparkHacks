@@ -18,11 +18,19 @@ def send_notification(message):
 
     email_message = f"Subject: {subject}\n\n{body}"
 
-    with smtplib.SMTP(smtp_server, 587) as server:
-        server.starttls()
-        server.login(sender_email, password)
-        server.sendmail(sender_email, reciver_email, email_message)
+    try:
+        with smtplib.SMTP(smtp_server, 587) as server:
+            server.starttls()
+            server.login(sender_email, password)
+            server.sendmail(sender_email, reciver_email, email_message)
+        print("Email sent successfully!")
+    except Exception as e:
+        print(f"Email deployment still in progress")
+        print("smtp_server is invalid or not supported\n")
+        
+        #print(f"An error occured: {e}")
 
+    
 def monitor_soil_condition(smart_device):
     while True:
         if smart_device.soil_temp > smart_device.soil_high_temp_threshold:
