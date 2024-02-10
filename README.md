@@ -6,7 +6,17 @@ The Smart Soil Monitoring System is a project aimed at providing real-time monit
 - Continuous data collection and display through a web interface.
 - Threshold notifications to alert users when soil conditions exceed predefined thresholds.
 - Interactive graphs for visualizing soil condition trends over time.
-- Components
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+
+1- Fork the repository.
+2- Create a new branch (git checkout -b feature/new-feature).
+3- Make your changes.
+4- Commit your changes (git commit -am 'Add new feature').
+5- Push to the branch (git push origin feature/new-feature).
+6- Create a new Pull Request.
+
 
 ## sparkHacks project setup
 Make sure python3 (3.10 or newer) is installed
