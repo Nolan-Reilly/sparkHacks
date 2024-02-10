@@ -24,15 +24,17 @@ def login():
             login_user(user)
             flash('Logged in successfully!', category='success')
             return redirect(url_for('index'))
+        else:
+            flash("Incorrect username or password. Try again...")
     return render_template("login.html", user=current_user)
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return '<p>Logout</p>'
+    return redirect(url_for('auth.login'))
 
-@auth.route('/signup')
+@auth.route('/signup', methods = ['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         # read in username and password from signup.html
@@ -42,5 +44,5 @@ def signup():
         user.write_to_file('user.txt')
         flash('Account created!', category='success')
         login_user(user)
-        return redirect(url_for('app.index'))
+        return redirect(url_for('index'))
     return render_template("signup.html", user=current_user)
