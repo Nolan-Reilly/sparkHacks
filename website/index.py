@@ -4,13 +4,8 @@ from .SMART import SMART
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 from matplotlib.animation import FuncAnimation, PillowWriter
-from matplotlib.figure import Figure
-from datetime import datetime
 import random
-import threading
 import time
-import base64
-from io import BytesIO
 
 index_blueprint = Blueprint('index', __name__)
 
@@ -50,12 +45,10 @@ def plot_data():
     axs[2].set_ylabel('pH')
 
     fig.tight_layout()
-
     ani = FuncAnimation(fig, update_data, frames=range(40), interval=1000)
     writer = PillowWriter(fps=2)
     ani.save('website/static/soil_data.gif', writer=writer)
     plt.close(fig)
-    return ani
 
 
 def update_data(frame):
