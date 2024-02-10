@@ -1,9 +1,4 @@
-from flask import Flask, jsonify
 from threading import Event
-
-app = Flask(__name__)
-
-
 # SMART class to monitor soil conditions
 class SMART:
     # Constructor
@@ -200,20 +195,7 @@ def test_smart():
     else:
         print("Conditions are normal")
 
-#test_smart()
+# test_smart()
 
-# Create a SMART device
-smart_device = SMART("Test Device", "1234", 50, 10, 30, 10, 7, 5)
-
-@app.routue('/check_conditions')
-def check_conditions():
-    # Trigger the condition method
-    if smart_device.check_conditions():
-        condistion_data = {
-            'Name': smart_device.Name,
-            'deviceID': smart_device.deviceID,
-            
-        }
-            
 
   
