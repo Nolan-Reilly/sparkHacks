@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,15 @@
         <h1 class="text-center text-3xl font-bold mb-4 text-green-500 flex items-center">
             <p>Welcome</p>
         </h1>
+        <div id="error" style="color: #ea958d; text-align: center;display: inline-block; padding: 5px; border-radius: 5px;">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+        </div>
         <div class="flex flex-col w-full max-w-lg bg-white p-6 rounded-lg shadow-md">
 
             <label for="username" class="mb-2 font-semibold text-gray-700">Username:</label>
@@ -35,12 +45,6 @@
         </div>
       </div>
     </form>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
+
 </body>
 </html>
