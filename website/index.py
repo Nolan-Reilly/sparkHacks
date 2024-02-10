@@ -7,7 +7,7 @@ index_blueprint = Blueprint('index', __name__)
 @index_blueprint.route('/index', methods = ['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        name = request.values.get('deviceName')
+        name = request.form.get('deviceName')
         id = request.form.get('deviceId')
         phone = request.form.get('phone')
         highPh = request.form.get('highPH')
