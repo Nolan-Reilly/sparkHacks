@@ -14,7 +14,7 @@ x_data = [[] for _ in range(3)]
 y_data = [[] for _ in range(3)]
 labels = ['Temperature', 'Soil Moisture', 'pH']
 
-@app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
