@@ -4,14 +4,14 @@ from email.mime.multipart import MIMEMultipart
 
 from threading import Thread
 import time
-from website.SMART import SMART
+from SMART import SMART
 
 def send_notification(message):
     # send email to customer
     smtp_server = "smtp.gmail.com"
-    sender_email= ""
-    reciver_email= ""
-    password = ""
+    sender_email= "micahbotbot@gmail.com"
+    reciver_email= "aolugbamila@gmail.com"
+    password = "Today123."
 
     subject = "SMART Notification- Soil Condition Warning!"
     body = message
@@ -33,6 +33,8 @@ def monitor_soil_condition(smart_device):
             send_notification(message)
         if smart_device.soil_moisture > smart_device.soil_high_moisture_threshold:
             message = f"{smart_device.Name} soil moisture is above the threshold value of {smart_device.soil_high_moisture_threshold}!"
+            print("Monitoring soil condition...")
+            print(message)
             send_notification(message)
         if smart_device.soil_moisture < smart_device.soil_low_moisture_threshold:
             message = f"{smart_device.Name} soil moisture is below the threshold value of {smart_device.soil_low_moisture_threshold}!"
@@ -49,12 +51,15 @@ def main():
     # Create SMART device
     smart_device = SMART("SMART-1", "1234", 70, 40, 50, 20, 7, 5)
     # Monitor soil condition
+    # test the monitor_soil_condition function
+    smart_device.soil_moisture = 70
     monitor_thread = Thread(target=monitor_soil_condition, args=(smart_device,))
-    monitor_thread.daemon = True
+    monitor_thread.daemon = False
     monitor_thread.start()
 
-
+    #print("Monitoring soil condition...")
 
 
 if __name__ == "__main__":
     main()
+    
