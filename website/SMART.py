@@ -2,13 +2,14 @@ from threading import Event
 # SMART class to monitor soil conditions
 class SMART:
     # Constructor
-    def __init__(self, Name, deviceID,soil_high_temp_threshold,soil_low_temp_threshold,
+    def __init__(self, Name, deviceID,Email,soil_high_temp_threshold,soil_low_temp_threshold,
                  soil_high_moisture_threshold,soil_low_moisture_threshold,
                  soil_high_ph_threshold,soil_low_ph_threshold): 
         
         # Device properties
         self._Name = Name
         self._deviceID = deviceID
+        self._Email = Email
         
         # Thresholds
         # soil temperature threshold
@@ -48,6 +49,16 @@ class SMART:
     @deviceID.setter
     def deviceID(self, value):
         self._deviceID = value
+    
+    # properties Email
+    @property
+    def Email(self):
+        return self._Email
+    
+    # Set Email
+    @Email.setter
+    def Email(self, value):
+        self._Email = value
 
     # properties soil_moisture_threshold
     @property

@@ -2,31 +2,45 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
 from threading import Thread
 import time
 from SMART import SMART
 
-def send_notification(message):
+def send_notification(body):
     # send email to customer
-    smtp_server = "smtp.gmail.com"
-    sender_email= "micahbotbot@gmail.com"
-    reciver_email= "aolugbamila@gmail.com"
-    password = "Today123."
-
-    subject = "SMART Notification- Soil Condition Warning!"
-    body = message
-
-    email_message = f"Subject: {subject}\n\n{body}"
-
+    
+    message = Mail(
+        from_email='micahbotbot@gmail.com',
+        to_emails='aolugbamila@gmail.com',
+        subject='SMART Notification- Soil Condition Warning!',
+        html_content= body)
     try:
-        with smtplib.SMTP(smtp_server, 587) as server:
-            server.starttls()
-            server.login(sender_email, password)
-            server.sendmail(sender_email, reciver_email, email_message)
-        print("Email sent successfully!")
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
     except Exception as e:
-        print(f"Email deployment still in progress")
-        print("smtp_server is invalid or not supported\n")
+        print(e.message)
+
+    # smtp_server = "smtp.gmail.com"
+    # sender_email= "micahbotbot@gmail.com"
+    # reciver_email= "aolugbamila@gmail.com"
+    # password = "Today123."
+
+    # subject = "SMART Notification- Soil Condition Warning!"
+    # body = message
+
+    # email_message = f"Subject: {subject}\n\n{body}"
+
+    #try:
+    #except Exception as e:
+        # print(f"Email deployment still in progress")
+        # print("smtp_server is invalid or not supported\n")
         
         #print(f"An error occured: {e}")
 
@@ -70,3 +84,23 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# using SendGrid's Python Library
+# https://github.com/sendgrid/sendgrid-python
+# import os
+# from sendgrid import SendGridAPIClient
+# from sendgrid.helpers.mail import Mail
+
+# message = Mail(
+#     from_email='micahbotbot@gmail.com',
+#     to_emails='aolugbamila@gmail.com',
+#     subject='Sending with Twilio SendGrid is Fun',
+#     html_content='<strong>and easy to do anywhere, even with Python</strong>')
+# try:
+#     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+#     response = sg.send(message)
+#     print(response.status_code)
+#     print(response.body)
+#     print(response.headers)
+# except Exception as e:
+#     print(e.message)
