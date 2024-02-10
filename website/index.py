@@ -121,6 +121,7 @@ def index():
         SMARTObj = SMART(name, id, email, int(highTemp), int(lowTemp), int(highMoisture), 
                          int(lowMoisture), int(highPh), int(lowPh))
         write_to_file(SMARTObj)
+        
         return redirect(url_for('index.graphs'))
     return render_template('index.html')
 
