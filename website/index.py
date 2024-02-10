@@ -137,12 +137,12 @@ def graphs():
 #  Write to file
 def write_to_file(SMARTObj):
     with open('website/customer.txt', 'a') as file:
-        file.write(SMARTObj.Name + '\n')
-        file.write(SMARTObj.deviceID + '\n')
-        file.write(SMARTObj.Email + '\n')
-        file.write(str(SMARTObj.soil_high_temp_threshold) + '\n')
-        file.write(str(SMARTObj.soil_low_temp_threshold) + '\n')
-        file.write(str(SMARTObj.soil_high_moisture_threshold) + '\n')
-        file.write(str(SMARTObj.soil_low_moisture_threshold) + '\n')
-        file.write(str(SMARTObj.soil_high_ph_threshold) + '\n')
-        file.write(str(SMARTObj.soil_low_ph_threshold) + '\n')
+        file.write(SMARTObj.Name + ',')
+        file.write(SMARTObj.deviceID + ',')
+        file.write(SMARTObj.Email + ',')
+        file.write(str(SMARTObj.soil_high_temp_threshold) + ',')
+        file.write(str(SMARTObj.soil_low_temp_threshold) + ',')
+        file.write(str(SMARTObj.soil_high_moisture_threshold) + ',')
+        file.write(str(SMARTObj.soil_low_moisture_threshold) + ',')
+        file.write(str(SMARTObj.soil_high_ph_threshold) + ',')
+        file.write(str(SMARTObj.soil_low_ph_threshold) + ',')
