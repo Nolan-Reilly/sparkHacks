@@ -51,6 +51,7 @@ def main():
     # Create SMART device
     smart_device = SMART("SMART-1", "1234", 70, 40, 50, 20, 7, 5)
     # Monitor soil condition
+
     # test the monitor_soil_condition function
     smart_device.soil_moisture = 70
     monitor_thread = Thread(target=monitor_soil_condition, args=(smart_device,))
@@ -59,7 +60,5 @@ def main():
 
     #print("Monitoring soil condition...")
 
-
 if __name__ == "__main__":
     main()
-    

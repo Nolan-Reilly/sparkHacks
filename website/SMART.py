@@ -6,6 +6,7 @@ class SMART:
                  soil_high_moisture_threshold,soil_low_moisture_threshold,
                  soil_high_ph_threshold,soil_low_ph_threshold): 
         
+        # Device properties
         self._Name = Name
         self._deviceID = deviceID
         
