@@ -7,3 +7,16 @@ My Device,966,user@gmail.com,86,68,80,60,7,6
 My Device,9657,user@gmail.com,86,68,80,60,7,6
 Device,9813,something@gmail.com,86,68,80,60,10,6
 Device ,9346,user@gmail.com,86,68,80,60,7,6
+My Smart Device,981,user@gmail.com,86,68,80,60,7,6
+My Smart Device,9548,user@gmail.com,86,68,80,60,9,5
+Crop Rice,9348,user@gmail.com,80,70,90,60,9,5
+Rice,999,uesr@gmail.com,89,9,80,50,9,5
+Device Name,9847,user@gmail.com,86,68,80,60,8,4
+Smart,9378,user@gmail.com,86,68,80,55,9,6
+Device,9385,user@gmail.com,86,68,80,60,9,6
+Device,999,user@gmail.com,86,68,80,60,9,6
+Device,999,user@gmail.com,87,64,80,60,7,4
+Device Name,9378,user@gmail.com,86,68,80,60,7,4
+Device,99,user@gmail.com,86,68,80,60,7,5
+My Device,999,user@gmail.com,86,68,80,60,8,6
+My,99,user@gma,86,68,80,60,8,9
